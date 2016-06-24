@@ -103,17 +103,17 @@ namespace Microsoft.VisualStudioTools.Project.Automation {
             }
         }
 
-        /// <summary>
-        /// Gets the Projects collection containing the Project object supporting this property.
-        /// </summary>
-        public virtual EnvDTE.Projects Collection {
-            get { return null; }
-        }
+		/// <summary>
+		/// Gets the Projects collection containing the Project object supporting this property.
+		/// </summary>
+		public virtual EnvDTE.Projects Collection {
+			get { return new OAProjects(this.project); }
+		}
 
-        /// <summary>
-        /// Gets the top-level extensibility object.
-        /// </summary>
-        public virtual EnvDTE.DTE DTE {
+		/// <summary>
+		/// Gets the top-level extensibility object.
+		/// </summary>
+		public virtual EnvDTE.DTE DTE {
             get {
                 return (EnvDTE.DTE)this.project.Site.GetService(typeof(EnvDTE.DTE));
             }
